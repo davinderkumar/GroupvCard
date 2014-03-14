@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>XMPP2APNS Listener Plugin Readme</title>
+    <style type="text/css">
+        BODY {
+            font-size : 100%;
+        }
+        BODY, TD, TH {
+            font-family : tahoma, verdana, arial, helvetica, sans-serif;
+            font-size : 0.8em;
+        }
+        H2 {
+             font-size : 10pt;
+             font-weight : bold;
+        }
+        A:hover {
+            text-decoration : none;
+        }
+        H1 {
+            font-family : tahoma, arial, helvetica, sans-serif;
+            font-size : 1.4em;
+            font-weight: bold;
+            border-bottom : 1px #ccc solid;
+            padding-bottom : 2px;
+        }
+
+        TT {
+            font-family : courier new;
+            font-weight : bold;
+            color : #060;
+        }
+        PRE {
+            font-family : courier new;
+            font-size : 100%;
+        }
+        #datatable TH {
+            color : #fff;
+            background-color : #2A448C;
+            text-align : left;
+        }
+        #datatable TD {
+            background-color : #FAF6EF;
+        }
+        #datatable .name {
+            background-color : #DCE2F5;
+        }
+    </style>
+</head>
+<body>
+
+<h1>
+XMPP2APNS Plugin Readme
+</h1>
+
+<h2>Overview</h2>
+
+<p>
+This plugin is to send APNS notifications to Apple Devices.
+</p>
+
+<h2>Installation</h2>
+
+<p>Login into OpenFire Admin, go to "Plugins" and select xmpp2apns.jar file
+upload plugin section. If plugin is already installed then uninstall it first.<br>
+
+As soon as the plug-in is installed , the database will automatically generate a table called ofAPNS .<br>
+
+And, copy the P12 certificate file from APNS to /usr/local/openfire.<br>
+</p>
+
+<h2>Configuration</h2>
+
+No configuration required.
+
+<h2>Using the Plugin</h2>
+
+Openfire forwards messages to this plugin which are forwarded to APNS (Apple Push Notification Server).
+<br>
+Here are IQ request formats
+<br>
+<u>Register device token</u><br>
+<br>
+&lt;iq type="set" to="OPENFIRE_SERVER" id="apns68057d6a"&gt;<br>
+&lt;query xmlns="urn:xmpp:apns"&gt;<br>
+&lt;token&gt; XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX &lt;/ token&gt;<br>
+&lt;/ query&gt;<br>
+&lt;/ iq&gt;<br>
+<br>
+The return value
+<br>
+&lt;iq type="result" id="OPENFIRE_SERVER" from="210.205.58.23" to="user@OPENFIRE_SERVER/68057d6a"&gt;<br>
+&lt;query xmlns="urn:xmpp:apns"&gt;<br>
+&lt;token&gt; XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX &lt;/ token&gt;<br>
+&lt;/ query&gt;<br>
+&lt;/ iq&gt;<br>
+<br>
+<u>Get device token</u><br>
+<br>
+&lt;iq type="get" to="OPENFIRE_SERVER" id="apns68057d6a"&gt;<br>
+        &lt;query xmlns="urn:xmpp:apns"/&gt;<br>
+&lt;/ iq&gt;<br>
+<br>
+The return value<br>
+<br>
+&lt;iq type="result" id="apns68057d6a" from="OPENFIRE_SERVER" to="user@OPENFIRE_SERVER/68057d6a"&gt;<br>
+&lt;query xmlns="urn:xmpp:apns"&gt;<br>
+&lt;token&gt; XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX &lt;/ token&gt;<br>
+&lt;/ query&gt;<br>
+&lt;/ iq&gt;<br>
+<br>
+<h2>See Also</h2>
+<br>
+The module that the request from the APNS Openfire ('Javapns' http://code.google.com/p/javapns/) using October
+<br>
+Openfire plugins are compiled to create a jar package (http://community.igniterealtime.org/docs/DOC-1020) for reference.
+<br>
+</body>
+</html>

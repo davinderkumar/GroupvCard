@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Plugin configuration for the broadcast plugin.
+-->
+<plugin>
+    <class>org.jivesoftware.openfire.plugin.groupvcard.GroupvCard</class>
+    <name>Group vCard</name>
+    <description>Group vCard Manager</description>
+    <author>Davinder Kumar Meen</author>
+    <version>0.1</version>
+    <date>03/03/2014</date>
+    <url>http://www.impingesolutions.com</url>
+    <minServerVersion>3.6.0</minServerVersion>
+    <databaseKey>groupvcard</databaseKey>
+    <databaseVersion>0</databaseVersion>
+</plugin>
